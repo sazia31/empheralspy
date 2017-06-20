@@ -4,6 +4,9 @@ import colorama
 from termcolor import *
 from datetime import datetime
 import string#Imported for avoiding invalid characters
+import getpass
+
+
 
 STATUS_MESSAGES = ['Life learnings from Holmes', 'Not Available', 'On the art of Deduction', 'You do not observe','Busy']
 #Pre-Existing statuses
@@ -190,8 +193,14 @@ def start_chat(spy):
         print 'Sorry! You are not of the correct age to be a spy!'
 
 if existing.upper() == "Y":
+    
+    pswd = getpass.getpass('Password:')
 
-    start_chat(spy)
+    if pswd == 'admin':
+        start_chat(spy)
+
+    else:
+        print 'Password Incorrect!'
 else:
 
     spy = Spy('','',0,0.0)
